@@ -17,7 +17,7 @@ jobs:
         # as a reminder for compatibility check
     steps:
     - name: Install Java 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
