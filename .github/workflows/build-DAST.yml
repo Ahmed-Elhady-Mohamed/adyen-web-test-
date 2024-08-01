@@ -30,7 +30,7 @@ jobs:
     - name: Install Project Dependencies
       run: yarn install
     - name: Build Project
-      run: yarn start
+      run: yarn build
     - name: Install Playwright Dependencies
       working-directory: packages/e2e-playwright/
       run: yarn install && npx playwright install --with-deps
