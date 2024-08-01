@@ -34,7 +34,3 @@ jobs:
     - name: Install Playwright Dependencies
       working-directory: packages/e2e-playwright/
       run: yarn install && npx playwright install --with-deps
-    - name: Run stackhawk
-       uses: stackhawk/hawkscan-action@v2.2.0
-        with:
-          apiKey: ${{ secrets.HAWK_API_KEY }}
