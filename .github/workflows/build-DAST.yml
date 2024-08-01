@@ -21,3 +21,20 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Project Dependencies
+      run: yarn install
+    - name: Build Project
+      run: yarn start
+    - name: Install Playwright Dependencies
+      working-directory: packages/e2e-playwright/
+      run: yarn install && npx playwright install --with-deps
+    - name: Run stackhawk
+       uses: stackhawk/hawkscan-action@v2.2.0
+        with:
+          apiKey: ${{ secrets.HAWK_API_KEY }}
