@@ -2,7 +2,7 @@
 
 ![Web](https://user-images.githubusercontent.com/7724351/198588741-f522c3ed-ff3c-4f70-b8cb-8ff9e6d41cfa.png)
 
-# Adyen Web
+# Adyen Web (TEST)
 
 Adyen Web provides you with the building blocks to create a checkout experience for your shoppers, allowing them to pay using the payment method of their choice.
 
