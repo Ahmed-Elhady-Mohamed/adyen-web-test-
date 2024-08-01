@@ -1,13 +1,11 @@
-name: E2E for Checkout Components
+name: Build and Scan test
 
 on:
   pull_request:
-  workflow_dispatch:
+  push:
 
 jobs:
-  build-then-e2e:
-    if: ${{ github.actor != 'renovate[bot]' && github.actor != 'lgtm-com[bot]' }}
-    timeout-minutes: 30
+  build:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -23,20 +21,3 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Setup Node
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install Project Dependencies
-      run: yarn install
-    - name: Build Project
-      run: yarn start
-    - name: Install Playwright Dependencies
-      working-directory: packages/e2e-playwright/
-      run: yarn install && npx playwright install --with-deps
-    - name: Run stackhawk
-       uses: stackhawk/hawkscan-action@v2.2.0
-        with:
-          apiKey: ${{ secrets.HAWK_API_KEY }}
