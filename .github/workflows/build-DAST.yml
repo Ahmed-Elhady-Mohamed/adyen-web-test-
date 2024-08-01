@@ -31,8 +31,11 @@ jobs:
       run: yarn install
     - name: Build Project
       run: yarn build
-    - name: Build Project
-      run: yarn start
-    - name: Install Playwright Dependencies
-      working-directory: packages/e2e-playwright/
-      run: yarn install && npx playwright install --with-deps
+    - name: Start Dev Project
+      run: nohup yarn start &
+    - name: run stackhawk
+      uses: stackhawk/hawkscan-action@v2.2.0
+      with:
+        apiKey: ${{ secrets.HAWK_API_KEY }}
+        verbose: true
+        debug: true
