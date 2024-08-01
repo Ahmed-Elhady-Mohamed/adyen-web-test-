@@ -1,7 +1,7 @@
-# -- stackhawk configuration for Adyen-web --
+# -- stackhawk configuration for Adyen Web --
 app:
   # -- An applicationId obtained from the StackHawk platform. --
-  applicationId: f7c52cce-fd3d-4fec-a288-e64195022b49 # (required)
+  applicationId: 86b41b41-7650-465a-823f-ca9fae41d76f # (required)
   # -- The environment for the applicationId defined in the StackHawk platform. --
   env: Development # (required)
   # -- The url of your application to scan --
